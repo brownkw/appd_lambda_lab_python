@@ -45,7 +45,7 @@ def lambda_function(event, context):
         profile = json.dumps(faker.profile(["job", "company", "ssn", "residence", "username", "name", "mail"]))
         key = uuid.uuid4().hex + ".json"
 
-        #TODO: Add in exit call
+        #TODO: Add in S3 exit call
         try:
             s3_client = boto3.client('s3')
             s3_client.put_object(Body=profile, Bucket=os.environ["CANDIDATE_S3_BUCKET"], Key=key)
@@ -61,7 +61,7 @@ def lambda_function(event, context):
             }
         except Exception as e:
 
-            #TODO: Add in exit call error reporting
+            #TODO: Add in S3 exit call error reporting
 
             body = {
                 "message": "Could not upload resume."
@@ -72,6 +72,6 @@ def lambda_function(event, context):
                 "body": json.dumps(body)
             }
 
-       
+       #TODO: End exit call
 
     return retval
