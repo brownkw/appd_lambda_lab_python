@@ -30,6 +30,14 @@ provider:
   stage: dev
   environment:
     CANDIDATE_S3_BUCKET: "candidate-resume-${opt:stage, self:provider.stage}"
+    AWS_REGION_STR: ${opt:region, self:provider.region}
+    APPDYNAMICS_ACCOUNT_NAME: "aws-sandbox"
+    APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY: "9ayhsaoe096t"
+    APPDYNAMICS_APPLICATION_NAME: "WayneLambdaTest"
+    APPDYNAMICS_CONTROLLER_HOST: "aws-sandbox.saas.appdynamics.com"
+    APPDYNAMICS_SERVERLESS_API_ENDPOINT: "https://pdx-sls-agent-api.saas.appdynamics.com"
+    APPDYNAMICS_CONTROLLER_PORT: 443    
+    APPDYNAMICS_LOG_LEVEL: "DEBUG"
 
   iamRoleStatements:
     - Effect: Allow
