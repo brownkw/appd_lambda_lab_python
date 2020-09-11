@@ -50,7 +50,7 @@ def lambda_function(event, context):
         key = uuid.uuid4().hex + ".json"
 
         #TODO: Add in S3 exit call
-        with appdynamics.ExitCallContextManager(exit_point_type="CUSTOM", exit_point_sub_type="Amazon Web Services", identifying_properties={"VENDOR": "S3", "BUCKET NAME" : os.environ["CANDIDATE_S3_BUCKET"]}) as ec:
+        with appdynamics.ExitCallContextManager(exit_point_type="CUSTOM", exit_point_sub_type="Amazon S3", identifying_properties={"BUCKET NAME" : os.environ["CANDIDATE_S3_BUCKET"]}) as ec:
             try:
                 s3_client = boto3.client('s3')
                 s3_client.put_object(Body=profile, Bucket=os.environ["CANDIDATE_S3_BUCKET"], Key=key)
