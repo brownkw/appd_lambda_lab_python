@@ -8,8 +8,6 @@ import uuid
 import os
 from random import randint
 
-#TODO: Add in AppDynamics tracer decorator
-@appdynamics.tracer
 def lambda_function(event, context):
     retval = {}
 
