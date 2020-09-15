@@ -5,7 +5,6 @@ from random import randint
 import boto3
 import os
 
-#TODO: Add in AppDynamics tracer decorator
 def lambda_function(event, context):
 
     s3_client = boto3.client('s3')
