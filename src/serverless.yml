@@ -34,6 +34,12 @@ provider:
   stage: dev
   environment:
     CANDIDATE_S3_BUCKET: "candidate-resume-${opt:stage, self:provider.stage}"
+    APPDYNAMICS_ACCOUNT_NAME: ""
+    APPDYNAMICS_APPLICATION_NAME: ""
+    APPDYNAMICS_CONTROLLER_HOST: ""
+    APPDYNAMICS_SERVERLESS_API_ENDPOINT: ""
+    APPDYNAMICS_CONTROLLER_PORT: 443
+    APPDYNAMICS_LOG_LEVEL: ""    
 
   iamRoleStatements:
     - Effect: Allow
