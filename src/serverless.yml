@@ -14,6 +14,7 @@
 plugins:
   - serverless-python-requirements
   - serverless-s3-remover
+  - serverless-stack-output
 
 custom:
   remover:
@@ -21,6 +22,9 @@ custom:
       - ${self:provider.environment.CANDIDATE_S3_BUCKET}
   pythonRequirements:
     dockerizePip: true
+  output:
+    handler: scripts/output.handler
+    file: .build/output.json
 
 service: appd-lambda-python
 
