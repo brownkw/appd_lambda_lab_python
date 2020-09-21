@@ -34,6 +34,7 @@ provider:
   stage: dev
   environment:
     CANDIDATE_S3_BUCKET: "candidate-resume-${opt:stage, self:provider.stage}"
+    AWS_REGION_STR: ${opt:region, self:provider.region}
     APPDYNAMICS_ACCOUNT_NAME: ""
     APPDYNAMICS_APPLICATION_NAME: ""
     APPDYNAMICS_CONTROLLER_HOST: ""
